@@ -13,13 +13,13 @@ public class OperationService {
 	public Operation calculate(Operation operation) {
 		switch (operation.getOperation()) {
 			case "SUM":
-				operation.setResult(operation.getNum1() + operation.getNum2());
+				operation.setResult(summary(operation.getNum1(), operation.getNum2()));
 				break;
 			case "SUB":
 				operation.setResult(subtract(operation.getNum1(), operation.getNum2()));
 				break;
 			case "MULTI":
-				operation.setResult(operation.getNum1() * operation.getNum2());
+				operation.setResult(multiply(operation.getNum1(), operation.getNum2()));
 				break;
 			case "DIV":
 				operation.setResult(divide(operation.getNum1(), operation.getNum2()));
@@ -28,6 +28,10 @@ public class OperationService {
 				throw new IllegalArgumentException("Invalid operation.");
 		}
 		return operation;
+	}
+
+	public double summary(double num1, double num2){
+		return num1 + num2;
 	}
 
 	public double subtract(double num1, double num2) {
